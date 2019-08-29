@@ -1,24 +1,9 @@
 import React, {Component} from 'react'
-import plants from '../plants-data'
 import PlantCard from './PlantCard'
 
-class Plants extends Component{
+const Plants = ({ plants }) => {
 
-  constructor(){
-    super()
-    this.state = {
-      plants: []
-    }
-  }
-
-  componentDidMount(){
-    this.setState({
-      plants: plants
-    })
-  }
-
-  render(){
-    const plantCards = this.state.plants.map(
+    const plantCards = plants.map(
       plant => <PlantCard key={plant.name} plant={plant} />
       )
     return (
@@ -27,7 +12,7 @@ class Plants extends Component{
         { plantCards }
       </div>
     )
-  }
+
 }
 
 export default Plants

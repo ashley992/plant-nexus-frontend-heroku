@@ -3,10 +3,11 @@ import React from 'react'
 const PlantCard = ({ plant }) => {
 
   return (
-    <div>
-      <img src={plant.url}/>
+    <>
+      <img src={plant.url} alt={plant.sciName}/>
       <p>Name: {plant.name}</p>
-    </div>
+      <p>Scientific Name: {plant.sciName}</p>
+    </>
   )
 }
 

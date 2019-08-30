@@ -15,23 +15,15 @@ class App extends Component {
     }
   }
 
-  componentDidMount(){
-    this.setState({
-      plants: plants
-    })
-  }
+  // componentDidMount(){
+
+  // }
 
   render(){
       return (
         <div className="App">
           <h1>Plant Nexus</h1>
-          { this.state.plants.length === 0 ?
-            "Loading..." :
-            <div>
-              <DisplayPlant plant={this.state.plants[0]}/>
-              <Plants plants={this.state.plants}/>
-            </div>
-          }
+          
       </div>
     );
   }

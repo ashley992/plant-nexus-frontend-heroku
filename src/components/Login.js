@@ -3,22 +3,27 @@ import { connect } from 'react-redux'
 import { updateLoginForm } from '../actions/loginForm.js'
 import { login } from '../actions/currentUser.js'
 
-const Login = ({ loginForm, updateLoginForm }) => {
+const Login = ({ loginFormData, updateLoginForm, login }) => {
 
 
   const handleChange = event => {
     const {name, value} = event.target
     const formData = {
-      ...loginForm,
+      ...loginFormData,
       [name]: value }
     updateLoginForm(formData)
   }
 
+  const handleSubmit = event => {
+    event.preventDefault()
+    login(loginFormData)
+  }
+
   return (
-    <form>
-      <input type='text' name='username' placeholder="username" value={loginForm.username} onChange={handleChange}/>
+    <form onSubmit={handleSubmit}>
+      <input type='text' name='username' placeholder="username" value={loginFormData.username} onChange={handleChange}/>
       <br />
-      <input type='text' name='password' placeholder='password' value={loginForm.password} onChange={handleChange}/>
+      <input type='text' name='password' placeholder='password' value={loginFormData.password} onChange={handleChange}/>
       <br />
       <input type='submit' value='Log In' />
     </form>
@@ -29,7 +34,7 @@ const Login = ({ loginForm, updateLoginForm }) => {
 //gives an argument coming into component that looks like {username: 'Plantinator', password: '123'}
 const mapStateToProps = state => {
   return {
-    loginForm: state.loginForm
+    loginFormData: state.loginForm
   }
 }
 

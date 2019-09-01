@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
 import Login from './components/Login.js'
-import Plants from './components/Plants'
-import DisplayPlant from './components/DisplayPlant'
-import plants from './plants-data'
+import { connect } from 'react-redux'
+import { getCurrentUser } from './actions/currentUser.js'
+// import Plants from './components/Plants'
+// import DisplayPlant from './components/DisplayPlant'
+// import plants from './plants-data'
 
 
 class App extends Component {
 
 
-  // componentDidMount(){
-
-  // }
+  componentDidMount(){
+    this.props.getCurrentUser()
+  }
 
   render(){
       return (
@@ -23,4 +25,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, { getCurrentUser })(App);

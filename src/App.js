@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Login from './components/Login.js'
+import Logout from './components/Logout.js'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser.js'
 // import Plants from './components/Plants'
@@ -19,10 +20,17 @@ class App extends Component {
       return (
         <div className="App">
           <h1>Plant Nexus</h1>
-          <Login />
+          {this.props.currentUser ? <Logout /> : <Login />}
       </div>
     );
   }
 }
 
-export default connect(null, { getCurrentUser })(App);
+const mapStateToProps = ({ currentUser }) => {
+  //currentUser deconstructed from incoming object and we know it has a property called currentUser
+  return {
+    currentUser
+  }
+}
+
+export default connect(mapStateToProps, { getCurrentUser })(App);

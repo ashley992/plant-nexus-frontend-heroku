@@ -11,7 +11,7 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
     const formData = {
       ...loginFormData,
       [name]: value }
-    updateLoginForm(formData)
+    updateLoginForm(formData) //updates state as user is putting input into text boxes
   }
 
   const handleSubmit = event => {

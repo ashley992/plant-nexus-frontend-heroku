@@ -5,13 +5,7 @@ import { getCurrentUser } from './actions/currentUser.js'
 import NavBar from './components/NavBar.js'
 import MainContainer from './components/MainContainer.js'
 
-// import Plants from './components/Plants'
-// import DisplayPlant from './components/DisplayPlant'
-// import plants from './plants-data'
-
-
 class App extends Component {
-
 
   componentDidMount(){
     this.props.getCurrentUser()

@@ -3,6 +3,7 @@ import './App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser.js'
 import NavBar from './components/NavBar.js'
+import Login from './components/Login.js'
 import MainContainer from './components/MainContainer.js'
 
 class App extends Component {

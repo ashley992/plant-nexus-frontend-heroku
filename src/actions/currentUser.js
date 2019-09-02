@@ -1,5 +1,5 @@
 import { resetLoginForm } from './loginForm.js'
-import { getPlants } from './plants.js'
+import { getPlants } from './myPlants.js'
 
 //synch action creators
 export const setCurrentUser = user => {
@@ -65,7 +65,6 @@ export const getCurrentUser = () => {
       } else {
         dispatch(setCurrentUser(resp.data))
         dispatch(getPlants({user_id: resp.data.id}))
-
       }
     })
   }

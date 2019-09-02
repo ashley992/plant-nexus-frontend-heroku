@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 
 const MainContainer = ({ currentUser }) => {
-
+  
   return (
     <div className="center">
      {currentUser ? <h3>Welcome {currentUser.name}</h3> : ""}

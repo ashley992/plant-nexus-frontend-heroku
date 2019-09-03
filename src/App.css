@@ -13,3 +13,11 @@ input {
   padding: 0.5em;
   font-size: 1em;
 }
+
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+  /* background-color: brown; */
+}

@@ -6,6 +6,13 @@ export const setPlants = plant => {
   }
 }
 
+export const clearMyPlants = () => {
+  return{
+    type: 'CLEAR_MY_PLANTS'
+  }
+}
+
+
 //asynch actions
 export const getPlants = ({ user_id }) => {
   return dispatch => {

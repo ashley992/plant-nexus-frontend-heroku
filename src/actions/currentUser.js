@@ -1,5 +1,6 @@
 import { resetLoginForm } from './loginForm.js'
 import { getPlants } from './myPlants.js'
+import { clearMyPlants } from './myPlants'
 
 //synch action creators
 export const setCurrentUser = user => {
@@ -32,8 +33,9 @@ export const login = credentials => {
       if (user.error){
         alert(user.error)
       }else {
-        dispatch(setCurrentUser(user))
+        dispatch(setCurrentUser(user.data))
         dispatch(resetLoginForm())
+        dispatch(getPlants({user_id: user.data.id}))
       }
     })
   }
@@ -45,6 +47,9 @@ export const logout = () => {
     return fetch('http://localhost:3001/api/v1/logout', {
       credentials: 'include',
       method: 'DELETE'
+    })
+    .then(user => {
+      dispatch(clearMyPlants())
     })
   }
 }

@@ -2,22 +2,25 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PlantCard from './PlantCard'
 
-const MyPlants = ({ myPlants }) => {
- //myPlants = [ {a plant}, {another plant}]
+const MyPlants = ({props}) => {
+ //props.myPlants = [ {a plant}, {another plant}]
+//  console.log(props.myPlants)
+  const plantCards = props.myPlants.length > 0 ? 
+  props.myPlants.map(plant => <PlantCard plant={plant} key={plant.id} />) : null
 
-  const displayPlants = myPlants.map(plant => <PlantCard plant={plant} key={plant.name} />)
-  
   return (
-    <div>
-      <h5>You're current plants:</h5>
-      {displayPlants}
-    </div>
+    <>
+      {props.currentUser ? <h5>You're current plants:</h5> : ""}
+      <div className="grid">
+        {plantCards}
+      </div>
+    </>
   )
 }
 
-const mapStateToProps = ({ myPlants}) => {
+const mapStateToProps = props => {
   return {
-    myPlants
+    props
   }
 }
 

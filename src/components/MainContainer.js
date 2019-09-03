@@ -4,7 +4,7 @@ import MyPlants from './MyPlants.js'
 
 
 const MainContainer = ({ currentUser }) => {
-  // console.log(currentUser)
+
   return (
     <div className="center">
      {currentUser ? <h3>Welcome {currentUser.attributes.name}</h3> : ""}

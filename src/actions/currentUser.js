@@ -74,3 +74,14 @@ export const getCurrentUser = () => {
     })
   }
 }
+
+export const signup = () => {
+  // return dispatch => {
+  //   return fetch("http://localhost:3001/api/v1/signup", {
+  //     credentials: 'include',
+  //     method: 'POST',
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify(credentials)
+}

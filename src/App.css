@@ -5,13 +5,14 @@
 .navbar {
   padding: 1em;
   background-color: chocolate;
+  text-align: left;
 }
 
 input {
   vertical-align: middle;
-  /* float: left; */
   padding: 0.5em;
   font-size: 1em;
+  margin: 2px;
 }
 
 .grid {
@@ -20,4 +21,8 @@ input {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   /* background-color: brown; */
+}
+
+.logoName{
+  color: rgb(0, 101, 0);
 }

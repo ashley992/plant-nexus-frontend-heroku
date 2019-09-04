@@ -3,12 +3,14 @@ import thunk from 'redux-thunk'
 import usersReducer from './reducers/usersReducer'
 import currentUser from './reducers/currentUser'
 import loginForm from './reducers/loginForm'
+import signupForm from './reducers/signupForm'
 import myPlants from './reducers/myPlants';
 
 const reducer = combineReducers({
   users: usersReducer,
   currentUser,
   loginForm,
+  signupForm,
   myPlants
 })
 

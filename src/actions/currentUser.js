@@ -1,4 +1,5 @@
 import { resetLoginForm } from './loginForm.js'
+import { resetSignupForm } from './signupForm.js'
 import { getPlants } from './myPlants.js'
 import { clearMyPlants } from './myPlants'
 
@@ -75,13 +76,28 @@ export const getCurrentUser = () => {
   }
 }
 
-export const signup = () => {
-  // return dispatch => {
-  //   return fetch("http://localhost:3001/api/v1/signup", {
-  //     credentials: 'include',
-  //     method: 'POST',
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify(credentials)
+export const signup = credentials => {
+  return dispatch => {
+    const userInfo = {
+      user: credentials
+    }
+    return fetch("http://localhost:3001/api/v1/signup", {
+      credentials: 'include',
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userInfo)
+    })
+    .then(r => r.json())
+    .then(user =>{
+      if (user.error){
+        alert(user.error)
+      }else {
+        dispatch(setCurrentUser(user.data))
+        dispatch(resetSignupForm())
+        dispatch(getPlants({user_id: user.data.id}))
+      }
+    })
+  }
 }

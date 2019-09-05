@@ -1,22 +1,25 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Login from './Login.js'
+// import Login from './Login.js'
 import Logout from './Logout.js'
+// import Signup from './Signup.js'
 
-const NavBar = ({ currentUser }) => {
+
+const NavBar = ({ currentUser, loggedIn }) => {
 
   return (
     <div className="navbar">
-      <button>Log In</button>
-      <button>Log Out</button>
-      {currentUser ? <Logout /> : <Login />}
+      <h3 className='logoName'>PlantNexus</h3> 
+      {/* <h4>Hi {currentUser.attributes.name}!</h4>     */}
+      { loggedIn ? <Logout/> : null }
     </div>
   )
 }
 
 const mapStateToProps = ({ currentUser }) => {
   return {
-    currentUser
+    currentUser,
+    loggedIn: !!currentUser
   }
 }
 

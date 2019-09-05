@@ -10,7 +10,7 @@ const MyPlants = ({props}) => {
 
   return (
     <>
-      {props.currentUser ? <h5>You're current plants:</h5> : ""}
+      {props.currentUser ? <h3>You're current plants:</h3> : ""}
       <div className="grid">
         {plantCards}
       </div>

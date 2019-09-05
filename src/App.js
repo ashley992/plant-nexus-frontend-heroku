@@ -10,6 +10,7 @@ import Signup from './components/Signup.js'
 import MyPlants from './components/MyPlants.js'
 // import MainContainer from './components/MainContainer.js'
 import { Route, withRouter } from 'react-router-dom'
+import NewPlantForm from './components/NewPlantForm'
 
 class App extends Component {
 
@@ -25,8 +26,8 @@ class App extends Component {
             <Route exact path='/' render={() => this.props.loggedIn ? <MyPlants /> : <Home />} />
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' render={({history})=> <Signup history={history}/>} />
-
-            <Route exact path='/plants' component={MyPlants}/>
+            <Route exact path='/my-plants' component={MyPlants}/>
+            <Route exact path='/my-plants/new' component={NewPlantForm}/>
           {/* </Switch> */}
         </div>
     );

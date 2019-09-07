@@ -1,6 +1,6 @@
-export const updateNewPlantForm = (name, value) => {
+export const updateNewPlantForm = plantData => {
   return {
     type: "UPDATE_NEW_PLANT_FORM",
-    payload: {name, value}
+    plantData
   }
 }

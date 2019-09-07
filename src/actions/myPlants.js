@@ -1,8 +1,8 @@
 //synchronous actions
-export const setPlants = plant => {
+export const setPlants = plants => {
   return {
     type: 'SET_MY_PLANTS',
-    plant
+    plants
   }
 }
 
@@ -12,6 +12,12 @@ export const clearMyPlants = () => {
   }
 }
 
+export const addPlant = plant => {
+  return {
+    type: 'ADD_CREATED_PLANT',
+    plant
+  }
+}
 
 //asynch actions
 export const getPlants = ({ user_id }) => {
@@ -29,6 +35,33 @@ export const getPlants = ({ user_id }) => {
         alert(resp.error)
       } else {
         resp.data.forEach( plant => dispatch(setPlants(plant.attributes)))
+      }
+    })
+  }
+}
+
+export const createPlant = (formData, history) => {
+  console.log("in create plant", formData)
+  return dispatch => {
+    const plantInfo = {
+      plant: formData
+    }
+    return fetch("http://localhost:3001/api/v1/signup", {
+      credentials: 'include',
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(plantInfo)
+    })
+    .then(r => r.json())
+    .then(plant =>{
+      if (plant.error){
+        alert(plant.error)
+      }else {
+        dispatch(addPlant(plant.data))
+        dispatch(getPlants({user_id: plant.data.user_id}))
+        history.push('/')
       }
     })
   }

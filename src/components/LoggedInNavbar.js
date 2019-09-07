@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import Logout from './Logout.js'
 import { NavLink } from 'react-router-dom'
 
-
 const LoggedInNavBar = ({ currentUser, loggedIn }) => {
 
   return (

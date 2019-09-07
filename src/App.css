@@ -26,6 +26,7 @@ input {
 
 .logoName{
   color: rgb(0, 101, 0);
+  padding: 5px;
 }
 
 a.active {

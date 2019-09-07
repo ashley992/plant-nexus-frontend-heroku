@@ -3,13 +3,12 @@ import './App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser.js'
 import NavBar from './components/NavBar.js'
-import Home from './components/Home.js'
+// import LoggedOutNavBar from './components/LoggedOutNavBar'
 import Login from './components/Login.js'
-// import Logout from './components/Logout.js'
 import Signup from './components/Signup.js'
 import MyPlants from './components/MyPlants.js'
 // import MainContainer from './components/MainContainer.js'
-import { Route, withRouter } from 'react-router-dom'
+import { Route, withRouter, Switch, Link } from 'react-router-dom'
 import NewPlantForm from './components/NewPlantForm'
 
 class App extends Component {
@@ -18,17 +17,20 @@ class App extends Component {
     this.props.getCurrentUser()
   }
   render(){
+    const {loggedIn} = this.props
       return (
         <div className='center'>
-          {/* <Switch> */}
-            <NavBar />
+          {/* { loggedIn ? <NavBar /> : <LoggedOutNavBar />} */}
+
+          <Switch>
             {/* <MainContainer /> */}
-            <Route exact path='/' component={Home} />
+            <Route exact path='/' component={NavBar} />
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' render={({history})=> <Signup history={history}/>} />
             <Route exact path='/my-plants' component={MyPlants}/>
-            <Route exact path='/my-plants/new' component={({history})=> <NewPlantForm history={history}/>}/>
-          {/* </Switch> */}
+            <Route exact path='/my-plants/new' component={NewPlantForm}/>
+          </Switch>
+
         </div>
     );
   }

@@ -23,11 +23,11 @@ class App extends Component {
           {/* <Switch> */}
             <NavBar />
             {/* <MainContainer /> */}
-            <Route exact path='/' render={() => this.props.loggedIn ? <MyPlants /> : <Home />} />
+            <Route exact path='/' component={Home} />
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' render={({history})=> <Signup history={history}/>} />
             <Route exact path='/my-plants' component={MyPlants}/>
-            <Route exact path='/my-plants/new' component={NewPlantForm}/>
+            <Route exact path='/my-plants/new' component={({history})=> <NewPlantForm history={history}/>}/>
           {/* </Switch> */}
         </div>
     );

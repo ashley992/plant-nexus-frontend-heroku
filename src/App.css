@@ -3,9 +3,11 @@
 }
 
 .navbar {
+  display: flex;
+  flex-direction: row;
   padding: 1em;
   background-color: chocolate;
-  text-align: left;
+  text-align: center;
 }
 
 input {
@@ -25,4 +27,8 @@ input {
 
 .logoName{
   color: rgb(0, 101, 0);
+}
+
+a.active {
+  color: green;
 }

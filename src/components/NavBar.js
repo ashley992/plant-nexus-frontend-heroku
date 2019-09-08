@@ -1,7 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import Logout from './Logout.js'
-// import { NavLink } from 'react-router-dom'
 import LoggedInNavBar from './LoggedInNavbar'
 import LoggedOutNavBar from './LoggedOutNavBar'
 

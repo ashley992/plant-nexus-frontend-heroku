@@ -8,7 +8,6 @@ export default (state = [], action) => {
         return []
         
       case 'ADD_CREATED_PLANT':
-        console.log("in reducer", action)
         return state = [...state, action.plant]
 
     default:

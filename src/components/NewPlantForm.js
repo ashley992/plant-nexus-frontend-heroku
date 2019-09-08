@@ -22,7 +22,6 @@ class NewPlantForm extends Component {
   }
 
    handleChange = event => {
-  console.log(this.state)
      const { name, value } = event.target
      this.setState({
        [name]: value
@@ -31,7 +30,8 @@ class NewPlantForm extends Component {
 
    handleSubmit = event => {
     event.preventDefault()
-    createPlant(this.state, this.props.history)
+    this.props.createPlant(this.state)
+    this.props.history.push('/my-plants')
     this.setState({
       name: '',
       scientific_name: '',

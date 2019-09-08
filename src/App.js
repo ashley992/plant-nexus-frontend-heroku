@@ -7,7 +7,7 @@ import Login from './components/Login.js'
 import Signup from './components/Signup.js'
 import MyPlants from './components/MyPlants.js'
 import { Route, withRouter, Switch} from 'react-router-dom'
-import NewPlantForm from './components/NewPlantForm'
+import PlantForm from './components/PlantForm'
 
 class App extends Component {
 
@@ -24,7 +24,7 @@ class App extends Component {
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' render={({history})=> <Signup history={history}/>} />
             <Route exact path='/my-plants' component={MyPlants}/>
-            <Route exact path='/my-plants/new' component={NewPlantForm}/>
+            <Route exact path='/my-plants/new' component={PlantForm}/>
           </Switch>
 
         </div>

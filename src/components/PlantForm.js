@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { createPlant } from '../actions/myPlants'
 
 
-class NewPlantForm extends Component {
+class PlantForm extends Component {
 
   constructor() {
     super()
@@ -50,4 +50,4 @@ class NewPlantForm extends Component {
 }
 
 
-export default connect(null, { createPlant })(NewPlantForm)
+export default connect(null, { createPlant })(PlantForm)

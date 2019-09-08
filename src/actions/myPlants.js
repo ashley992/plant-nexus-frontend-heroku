@@ -40,13 +40,12 @@ export const getPlants = ({ user_id }) => {
   }
 }
 
-export const createPlant = (formData, history) => {
-  console.log("in create plant", formData)
+export const createPlant = (formData) => {
   return dispatch => {
     const plantInfo = {
       plant: formData
     }
-    return fetch("http://localhost:3001/api/v1/signup", {
+    return fetch("http://localhost:3001/api/v1/plants", {
       credentials: 'include',
       method: 'POST',
       headers: {
@@ -60,8 +59,7 @@ export const createPlant = (formData, history) => {
         alert(plant.error)
       }else {
         dispatch(addPlant(plant.data))
-        dispatch(getPlants({user_id: plant.data.user_id}))
-        history.push('/')
+        alert("There's a new plant in your garden!")
       }
     })
   }

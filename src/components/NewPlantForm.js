@@ -9,16 +9,9 @@ class NewPlantForm extends Component {
     super()
     this.state = {
       name: '',
-      scientific_name: '',
-      image_url: '',
-      currentUser: {}
+      scientificName: '',
+      imageUrl: ''
     }
-  }
-
-  componentDidMount = () => {
-    this.setState({
-      currentUser: this.props.currentUser
-    })
   }
 
    handleChange = event => {
@@ -34,8 +27,8 @@ class NewPlantForm extends Component {
     this.props.history.push('/my-plants')
     this.setState({
       name: '',
-      scientific_name: '',
-      image_url: ''
+      scientificName: '',
+      imageUrl: ''
     })
    }
 
@@ -46,9 +39,9 @@ class NewPlantForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <input placeholder="name" name="name" type="text" onChange={this.handleChange} />
           <br/>
-          <input type='text' name="scientific_name" placeholder="Scientific Name (optional)" onChange={this.handleChange}/>
+          <input type='text' name="scientificName" placeholder="Scientific Name (optional)" onChange={this.handleChange}/>
           <br />
-          <input type='text' name="image_url" placeholder="Image Url" onChange={this.handleChange}/>
+          <input type='text' name="imageUrl" placeholder="Image Url" onChange={this.handleChange}/>
           <br />
           <input type="submit" value="Create Plant" />
         </form>
@@ -56,10 +49,5 @@ class NewPlantForm extends Component {
   )}
 }
 
-const mapStateToProps = state => {
-  return ({
-    currentUser: state.currentUser
-  })
-}
 
-export default connect(mapStateToProps, { createPlant })(NewPlantForm)
+export default connect(null, { createPlant })(NewPlantForm)

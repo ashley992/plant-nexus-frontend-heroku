@@ -3,15 +3,16 @@ import { connect } from 'react-redux'
 import PlantCard from './PlantCard'
 import { getPlants } from '../actions/myPlants'
 
-const MyPlants = ({props}) => {
+const MyPlants = ({ myPlants, userName}) => {
  //props.myPlants = [ {a plant}, {another plant}]
 
-  const plantCards = props.myPlants.length > 0 ? 
-  props.myPlants.map(plant => <PlantCard plant={plant} key={plant.id} />) : null
+  const plantCards = myPlants.length > 0 ? 
+  myPlants.map(plant => <PlantCard plant={plant} key={plant.id} />) : null
 
   return (
     <div>
-      {props.currentUser ? <h3>You're current plants:</h3> : ""}
+      <h2>Welcome {userName}</h2>
+      <h3>Checkout what's in your garden:</h3>
       <div className="grid">
         {plantCards}
       </div>
@@ -19,9 +20,11 @@ const MyPlants = ({props}) => {
   )
 }
 
-const mapStateToProps = props => {
+const mapStateToProps = state => {
+  const userName = state.currentUser ? state.currentUser.attributes.name : ""
   return {
-    props
+    myPlants: state.myPlants,
+    userName: userName
   }
 }
 

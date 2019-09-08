@@ -37,7 +37,7 @@ export const login = (credentials, history) => {
         dispatch(setCurrentUser(user.data))
         dispatch(resetLoginForm())
         dispatch(getPlants({user_id: user.data.id}))
-        history.push('/')
+        history.push('/my-plants')
       }
     })
   }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
@@ -8,7 +8,7 @@ const LoginSignupNavBar = ({ currentUser }) => {
   return (
     <>
       <h4>
-        Welcome, please <Link to='/signup'> Signup </Link> or <Link to='/login'> Login</Link>
+        Welcome, please <NavLink to='/signup'> Signup </NavLink> or <NavLink to='/login'> Login</NavLink>
       </h4>
     </>
   )

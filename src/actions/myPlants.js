@@ -43,7 +43,11 @@ export const getPlants = ({ user_id }) => {
 export const createPlant = (formData) => {
   return dispatch => {
     const plantInfo = {
-      plant: formData
+      plant: {
+        name: formData.name,
+        scientific_name: formData.scientificName,
+        image_url: formData.imageUrl
+      }
     }
     return fetch("http://localhost:3001/api/v1/plants", {
       credentials: 'include',

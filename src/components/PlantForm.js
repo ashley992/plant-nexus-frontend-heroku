@@ -1,53 +1,48 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { updatePlantForm } from '../actions/plantForm'
 import { connect } from 'react-redux'
-import { createPlant } from '../actions/myPlants'
+
+const PlantForm = ({ formData, updatePlantForm, userId, trip, handleSubmit, editMode }) => {
+
+  const { name, scientificName, imageUrl } = formData
 
 
-class PlantForm extends Component {
-
-  constructor() {
-    super()
-    this.state = {
-      name: '',
-      scientificName: '',
-      imageUrl: ''
-    }
+  const handleChange = event => {
+    const { name, value } = event.target
+    updatePlantForm(name, value)
   }
 
-   handleChange = event => {
-     const { name, value } = event.target
-     this.setState({
-       [name]: value
-     })
-  }
-
-   handleSubmit = event => {
-    event.preventDefault()
-    this.props.createPlant(this.state)
-    this.props.history.push('/my-plants')
-    this.setState({
-      name: '',
-      scientificName: '',
-      imageUrl: ''
-    })
-   }
-
-  render(){
-    return (
-      <>
-        <h3>Add a new plant to your collection:</h3>
-        <form onSubmit={this.handleSubmit}>
-          <input placeholder="name" name="name" type="text" onChange={this.handleChange} />
-          <br/>
-          <input type='text' name="scientificName" placeholder="Scientific Name (optional)" onChange={this.handleChange}/>
-          <br />
-          <input type='text' name="imageUrl" placeholder="Image Url" onChange={this.handleChange}/>
-          <br />
-          <input type="submit" value="Create Plant" />
-        </form>
-      </>
-  )}
+  return (
+    <form onSubmit={event => {
+      event.preventDefault()
+      handleSubmit(formData)
+    }}>
+      <input
+        placeholder="name" name="name" onChange={handleChange} value={name}
+      />
+        <br/>
+      <input
+        placeholder="Scientific Name" name="scientificName"
+        onChange={handleChange} value={scientificName}
+      />
+      <br/>
+      <input
+        placeholder="Image Url" name="imageUrl" onChange={handleChange} value={imageUrl}
+      />
+      <br/>
+      <input
+        type="submit" value={editMode ? "Update Plant" : "Create Trip" }
+      />
+    </form>
+  );
 }
 
+const mapStateToProps = state => {
+  const userId = state.currentUser ? state.currentUser.id : ""
+  return {
+    formData: state.plantForm,
+    userId
+  }
+}
 
-export default connect(null, { createPlant })(PlantForm)
+export default connect(mapStateToProps, { updatePlantForm })(PlantForm);

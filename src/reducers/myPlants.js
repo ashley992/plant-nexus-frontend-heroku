@@ -6,9 +6,13 @@ export default (state = [], action) => {
       
       case 'CLEAR_MY_PLANTS':
         return []
-        
+
       case 'ADD_CREATED_PLANT':
         return state = [...state, action.plant]
+
+      case 'UPDATE_PLANT':
+        console.log('in update plant reducer', action)
+        return state.map(plant => plant.id === action.plant.id ? action.plant : plant)
 
     default:
       return state

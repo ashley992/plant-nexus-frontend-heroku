@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PlantForm from './PlantForm'
 import { updatePlant } from '../actions/myPlants'
-import { setEditFormData } from '../actions/plantForm'
+import { setEditFormData, resetPlantForm } from '../actions/plantForm'
 import { connect } from 'react-redux'
 
 class EditPlantFormContainer extends Component {
@@ -10,8 +10,11 @@ class EditPlantFormContainer extends Component {
     this.props.plant && this.props.setEditFormData(this.props.plant)
   }
 
+  componentWillUnmount(){
+    this.props.resetPlantForm()
+  }
+
   handleSubmit = (formData, userId) => {
-    console.log('handlesubmit props', this.props)
     const { updatePlant, plant, history } = this.props
     updatePlant({
       ...formData,
@@ -26,4 +29,4 @@ class EditPlantFormContainer extends Component {
   }
 };
 
-export default connect(null, {updatePlant, setEditFormData })(EditPlantFormContainer);
+export default connect(null, {updatePlant, setEditFormData, resetPlantForm })(EditPlantFormContainer);

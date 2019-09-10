@@ -5,8 +5,10 @@
 .navbar {
   display: flex;
   flex-direction: row;
-  padding: 1em;
+  justify-content: space-evenly;
+  /* padding: 2px; */
   background-color: chocolate;
+  font-size: 1.5em;
 }
 
 input {
@@ -17,18 +19,17 @@ input {
 }
 
 .grid {
-  /* position: relative; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 5px;
-  /* background-color: brown; */
 }
 
 .logoName{
   color: rgb(0, 101, 0);
-  padding: 5px;
+  /* padding: 5px; */
 }
 
 a.active {
   color: green;
 }
+

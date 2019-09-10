@@ -79,13 +79,14 @@ export const createPlant = (formData, history) => {
         alert(plant.error)
       }else {
         dispatch(addPlant(plant.data))
-        history.push(`plants/${plant.data.id}`)
+        history.push(`${plant.data.id}`)
       }
     })
   }
 }
 
 export const updatePlant = (formData, history) => {
+  console.log('in update action', formData)
   return dispatch => {
     const plantData = {
       name: formData.name,

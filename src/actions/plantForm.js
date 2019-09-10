@@ -14,9 +14,9 @@ export const resetPlantForm = () => {
 export const setEditFormData = plant => {
   console.log("in set edit form", plant)
   const plantFormData = {
-    name: plant.attributes.name,
-    scientificName: plant.attributes.scientific_name,
-    imageUrl: plant.attributes.image_url
+    name: plant.name,
+    scientificName: plant.scientific_name,
+    imageUrl: plant.image_url
   }
   return {
     type: "SET_EDIT_FORM_DATA",

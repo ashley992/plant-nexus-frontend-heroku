@@ -1,3 +1,5 @@
+import { resetPlantForm } from "./plantForm"
+
 //synchronous actions
 export const setPlants = plants => {
   return {
@@ -15,6 +17,20 @@ export const clearMyPlants = () => {
 export const addPlant = plant => {
   return {
     type: 'ADD_CREATED_PLANT',
+    plant
+  }
+}
+
+export const deletePlantSuccess = plantId => {
+  return {
+    type: "DELETE_PLANT",
+    plantId
+  }
+}
+
+export const updatePlantSuccess = plant => {
+  return {
+    type: "UPDATE_PLANT",
     plant
   }
 }
@@ -40,7 +56,7 @@ export const getPlants = ({ user_id }) => {
   }
 }
 
-export const createPlant = (formData) => {
+export const createPlant = (formData, history) => {
   return dispatch => {
     const plantInfo = {
       plant: {
@@ -63,7 +79,53 @@ export const createPlant = (formData) => {
         alert(plant.error)
       }else {
         dispatch(addPlant(plant.data))
-        alert("There's a new plant in your garden!")
+        history.push(`plants/${plant.data.id}`)
+      }
+    })
+  }
+}
+
+export const updatePlant = (formData, history) => {
+  return dispatch => {
+    const plantData = {
+      name: formData.name,
+      scientific_name: formData.scientificName,
+      image_url: formData.imageUrl,
+      user_id: formData.userId
+    }
+    return fetch(`http://localhost:3001/api/v1/plants/${formData.plantId}`, {
+      credentials: 'include',
+      method: 'PATCH',
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(plantData)
+    })
+    .then(r => r.json())
+    .then(plant => {
+      if(plant.error) {
+        alert(plant.error)
+      } else{
+        dispatch(updatePlantSuccess(plant.data))
+        dispatch(resetPlantForm())
+        history.push(`/plants/${plant.data.id}`)
+      }
+    })
+  }
+}
+
+export const deletePlant = (plantId, history) => {
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/v1/plants/${plantId}`, {
+      credentials: "include",
+      method: "DELETE",
+      headers: {"Content-Type": "application/json"}
+    })
+    .then(r => r.json())
+    .then(plant => {
+      if(plant.error){
+        alert(plant.error)
+      } else {
+        dispatch(deletePlantSuccess(plantId))
+        history.push(`/plants`)
       }
     })
   }

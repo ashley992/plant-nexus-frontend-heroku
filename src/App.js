@@ -18,7 +18,7 @@ class App extends Component {
     this.props.getCurrentUser()
   }
   render(){
-    const { plants,  } = this.props
+    const { plants } = this.props
       return (
         <div className='center'>
           <NavBar />
@@ -30,13 +30,16 @@ class App extends Component {
             <Route exact path='/plants' component={MyPlants}/>
             <Route exact path='/plants/new' component={NewPlantFormContainer}/>
             <Route exact path='/plants/:id' render={props => {
-              const plant = plants.find(plant => plant.id === props.match.params.id)
-              console.log(plant)
-              return <PlantCard plant={plant} key={plant.id} {...props} />
+              const plant = plants.find(plant => {
+                return parseInt(plant.id) === parseInt(props.match.params.id)
+                })
+              return <PlantCard plant={plant ? plant : null } key={props.match.params.id} {...props} />
               }
             } />
             <Route exact path='/plants/:id/edit' render={props => {
-              const plant = plants.find(plant => plant.id === props.match.params.id)
+              const plant = plants.find(plant => {
+                return parseInt(plant.id) === parseInt(props.match.params.id)
+                })
               // dispatch updateForm -> trip
               return <EditPlantFormContainer plant={plant} {...props}/>
             }

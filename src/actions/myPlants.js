@@ -62,7 +62,8 @@ export const createPlant = (formData, history) => {
       plant: {
         name: formData.name,
         scientific_name: formData.scientificName,
-        image_url: formData.imageUrl
+        image_url: formData.imageUrl,
+        notes: formData.notes
       }
     }
     return fetch("http://localhost:3001/api/v1/plants", {
@@ -78,7 +79,7 @@ export const createPlant = (formData, history) => {
       if (plant.error){
         alert(plant.error)
       }else {
-        dispatch(addPlant(plant.data))
+        dispatch(addPlant(plant.data.attributes))
         dispatch(resetPlantForm())
         history.push(`/plants/${plant.data.id}`)
       }
@@ -92,6 +93,7 @@ export const updatePlant = (formData, history) => {
       name: formData.name,
       scientific_name: formData.scientificName,
       image_url: formData.imageUrl,
+      notes: formData.notes
     }
     return fetch(`http://localhost:3001/api/v1/plants/${formData.plantId}`, {
       credentials: 'include',
@@ -104,7 +106,7 @@ export const updatePlant = (formData, history) => {
       if(plant.error) {
         alert(plant.error)
       } else{
-        dispatch(updatePlantSuccess(plant.data))
+        dispatch(updatePlantSuccess(plant.data.attributes))
         history.push(`/plants/${plant.data.id}`)
       }
     })

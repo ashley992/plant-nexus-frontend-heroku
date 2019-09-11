@@ -3,16 +3,16 @@ import PlantForm from './PlantForm'
 import { createPlant } from '../actions/myPlants'
 import { connect } from 'react-redux'
 
-const NewPlantFormContainer = ({ createPlant }) => {
+const NewPlantFormContainer = ({ createPlant, history }) => {
 
-  const handleSubmit = (formData) => {
-    createPlant(formData)
+  const handleSubmit = (formData, history) => {
+    createPlant(formData, history)
   }
 
   return(
     <>
       <h2>Add a new happy plant to your garden!</h2>
-      <PlantForm handleSubmit={handleSubmit} />
+      <PlantForm history={history} handleSubmit={handleSubmit} />
     </>
   )
 };

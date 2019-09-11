@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+/* ------  Navbar -------  */
 .navbar {
   display: flex;
   flex-direction: row;
@@ -9,6 +10,27 @@
   background-color: chocolate;
   font-size: 1.5em;
 }
+
+.logoName{
+  color: rgb(0, 101, 0);
+}
+
+#logout {
+  background: chocolate;
+  box-sizing: border-box;
+  border-color: chocolate;
+}
+
+.logoPic {
+  width: 15%;
+}
+
+.navPic{
+  width: 8%;
+  vertical-align: middle;
+}
+
+/* ------ Forms and Types ------ */
 form {
   padding: 1em;
 }
@@ -19,19 +41,8 @@ input {
   margin: 2px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
-}
-
-.logoName{
-  color: rgb(0, 101, 0);
-  text-decoration: underline
-}
-
 a {
-  padding: 1em;
+  padding: 1px;
   color: darkgreen;
   text-decoration: none;
 }
@@ -40,20 +51,18 @@ a.active {
   color: blue;
 }
 
-#sadPlant {
-  width: 20%;
-}
-
 .delete {
   color: red;
   font-size: 1.2em;
 }
 
-#logout {
-  background: chocolate;
-  margin: 0.7em;
-  padding: 0px;
-  text-decoration: none;
-  /* transition: all 0.2s; */
+/* ------ Misc styling ------ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+}
 
+#sadPlant {
+  width: 20%;
 }

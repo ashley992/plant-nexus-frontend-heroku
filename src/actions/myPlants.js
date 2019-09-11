@@ -21,17 +21,17 @@ export const addPlant = plant => {
   }
 }
 
-export const deletePlantSuccess = plantId => {
-  return {
-    type: "DELETE_PLANT",
-    plantId
-  }
-}
-
 export const updatePlantSuccess = plant => {
   return {
     type: "UPDATE_PLANT",
     plant
+  }
+}
+
+export const deletePlantSuccess = plantId => {
+  return {
+    type: "DELETE_PLANT",
+    plantId
   }
 }
 
@@ -80,7 +80,7 @@ export const createPlant = (formData, history) => {
       }else {
         dispatch(addPlant(plant.data))
         dispatch(resetPlantForm())
-        history.push(`${plant.data.id}`)
+        history.push(`/plants/${plant.data.id}`)
       }
     })
   }

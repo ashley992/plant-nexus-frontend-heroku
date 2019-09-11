@@ -9,6 +9,7 @@ const PlantCard = ({plant}) =>{
           <img src={plant.image_url} alt={plant.name}/>
           <p>Name: {plant.name}</p>
           <p>Scientific Name: {plant.scientific_name}</p>
+          <p>Notes: {plant.notes}</p>
         </Link>
         <Link to={`/plants/${plant.id}/edit`}> Edit this plant </Link>
       </div> :

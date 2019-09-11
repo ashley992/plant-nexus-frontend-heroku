@@ -8,6 +8,7 @@ export default (state = [], action) => {
         return []
 
       case 'ADD_CREATED_PLANT':
+        console.log(action.plant)
         return state = [...state, action.plant]
 
       case 'UPDATE_PLANT':

@@ -3,18 +3,18 @@ import PlantForm from './PlantForm'
 import { createPlant } from '../actions/myPlants'
 import { connect } from 'react-redux'
 
-const NewPlantFormContainer = ({ history, createPlant }) => {
+const NewPlantFormContainer = ({ createPlant }) => {
 
-  const handleSubmit = (event, formData, userId) => {
-    event.preventDefault()
-    createPlant({
-      ...formData,
-      userId
-    }, history)
+  const handleSubmit = (formData) => {
+    createPlant(formData)
   }
 
-  return <PlantForm history={history} handleSubmit={handleSubmit} />
-
+  return(
+    <>
+      <h2>Add a new happy plant to your garden!</h2>
+      <PlantForm handleSubmit={handleSubmit} />
+    </>
+  )
 };
 
 export default connect(null, {createPlant})(NewPlantFormContainer);

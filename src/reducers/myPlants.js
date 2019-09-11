@@ -15,7 +15,7 @@ export default (state = [], action) => {
         return state.map(plant => plant.id === action.plant.id ? action.plant : plant)
       
       case 'DELETE_PLANT':
-        return state.filter(plant => plant.id !== action.plantId)
+        return state.filter(plant => plant.id === action.plantId ? false : true)
 
     default:
       return state

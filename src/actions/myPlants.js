@@ -79,6 +79,7 @@ export const createPlant = (formData, history) => {
         alert(plant.error)
       }else {
         dispatch(addPlant(plant.data))
+        dispatch(resetPlantForm())
         history.push(`${plant.data.id}`)
       }
     })
@@ -86,13 +87,11 @@ export const createPlant = (formData, history) => {
 }
 
 export const updatePlant = (formData, history) => {
-  console.log('in update action', formData)
   return dispatch => {
     const plantData = {
       name: formData.name,
       scientific_name: formData.scientificName,
       image_url: formData.imageUrl,
-      user_id: formData.userId
     }
     return fetch(`http://localhost:3001/api/v1/plants/${formData.plantId}`, {
       credentials: 'include',
@@ -106,7 +105,6 @@ export const updatePlant = (formData, history) => {
         alert(plant.error)
       } else{
         dispatch(updatePlantSuccess(plant.data))
-        dispatch(resetPlantForm())
         history.push(`/plants/${plant.data.id}`)
       }
     })

@@ -42,7 +42,6 @@ class App extends Component {
               const plant = plants.find(plant => {
                 return parseInt(plant.id) === parseInt(props.match.params.id)
                 })
-              // dispatch updateForm -> trip
               return <EditPlantFormContainer plant={plant} {...props}/>
             }
           }/>

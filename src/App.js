@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser.js'
+import Home from './components/Home.js'
 import NavBar from './components/NavBar.js'
 import Login from './components/Login.js'
 import Signup from './components/Signup.js'
@@ -20,11 +21,12 @@ class App extends Component {
   render(){
     const { plants } = this.props
       return (
-        <div className='center'>
-          <NavBar />
+        <>
+        <NavBar />
+        <div className='center main'>
 
           <Switch>
-            {/* <Route exact path='/' component={NavBar} /> */}
+            <Route exact path='/' component={Home} />
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' render={({history})=> <Signup history={history}/>} />
             <Route exact path='/plants' component={MyPlants}/>
@@ -46,6 +48,7 @@ class App extends Component {
           }/>
           </Switch>
         </div>
+        </>
     );
   }
 }

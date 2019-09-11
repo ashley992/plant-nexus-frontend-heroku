@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PlantForm from './PlantForm'
-import { updatePlant } from '../actions/myPlants'
+import { updatePlant, deletePlant } from '../actions/myPlants'
 import { setEditFormData, resetPlantForm } from '../actions/plantForm'
 import { connect } from 'react-redux'
 
@@ -10,23 +10,35 @@ class EditPlantFormContainer extends Component {
     this.props.plant && this.props.setEditFormData(this.props.plant)
   }
 
+  componentDidUpdate(prevProps){
+    this.props.plant && !prevProps.plant && this.props.setEditFormData(this.props.plant)
+  }
+
   componentWillUnmount(){
     this.props.resetPlantForm()
   }
 
-  handleSubmit = (formData, userId) => {
+  handleClick = () => {
+    this.props.deletePlant(this.props.match.params.id)
+  }
+
+  handleSubmit = (formData) => {
     const { updatePlant, plant, history } = this.props
     updatePlant({
       ...formData,
-      plantId: plant.id,
-      userId
+      plantId: plant.id
     }, history)
   }
   
   render(){
-    const { handleSubmit } = this.props
-    return <PlantForm editMode handleSubmit={this.handleSubmit} />
+    return (
+      <>
+        <h2>Edit this plant</h2>
+        <PlantForm editMode handleSubmit={this.handleSubmit} />
+        <button className="delete" onClick={this.handleClick}>Plant died, remove from garden</button>
+      </>
+    )
   }
 };
 
-export default connect(null, {updatePlant, setEditFormData, resetPlantForm })(EditPlantFormContainer);
+export default connect(null, {updatePlant, setEditFormData, resetPlantForm, deletePlant })(EditPlantFormContainer);

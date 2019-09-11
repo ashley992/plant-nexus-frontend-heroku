@@ -6,11 +6,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  /* padding: 2px; */
   background-color: chocolate;
   font-size: 1.5em;
 }
-
+form {
+  padding: 1em;
+}
 input {
   vertical-align: middle;
   padding: 0.5em;
@@ -26,13 +27,33 @@ input {
 
 .logoName{
   color: rgb(0, 101, 0);
-  /* padding: 5px; */
+  text-decoration: underline
+}
+
+a {
+  padding: 1em;
+  color: darkgreen;
+  text-decoration: none;
 }
 
 a.active {
-  color: green;
+  color: blue;
 }
 
 #sadPlant {
   width: 20%;
+}
+
+.delete {
+  color: red;
+  font-size: 1.2em;
+}
+
+#logout {
+  background: chocolate;
+  margin: 0.7em;
+  padding: 0px;
+  text-decoration: none;
+  /* transition: all 0.2s; */
+
 }

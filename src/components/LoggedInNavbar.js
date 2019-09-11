@@ -7,8 +7,8 @@ const LoggedInNavBar = ({ currentUser, loggedIn }) => {
 
   return (
     <>
-        <NavLink exact activeClassName="active" to='/my-plants'> | My Plants |  </NavLink>
-        <NavLink exact activeClassName="active" to='/my-plants/new'>_ New Plant  | </NavLink>
+        <NavLink exact activeClassName="active" to='/plants'>My Plants</NavLink>
+        <NavLink exact activeClassName="active" to='/plants/new'>New Plant</NavLink>
         <Logout/>
     </>
   )

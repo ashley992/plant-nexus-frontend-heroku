@@ -2,7 +2,7 @@ import React from 'react';
 import { updatePlantForm } from '../actions/plantForm'
 import { connect } from 'react-redux'
 
-const PlantForm = ({ formData, updatePlantForm, handleSubmit, editMode, plant }) => {
+const PlantForm = ({ formData, history, updatePlantForm, handleSubmit, editMode, plant }) => {
 
   const handleChange = event => {
     const { name, value } = event.target
@@ -16,7 +16,7 @@ const PlantForm = ({ formData, updatePlantForm, handleSubmit, editMode, plant })
   return (
     <form onSubmit={event => {
       event.preventDefault()
-      handleSubmit(formData)
+      handleSubmit(formData, history)
     }}>
       <input
         placeholder="name" name="name" onChange={handleChange} value={formData.name}
@@ -39,7 +39,6 @@ const PlantForm = ({ formData, updatePlantForm, handleSubmit, editMode, plant })
 }
 
 const mapStateToProps = state => {
-  // const userId = state.currentUser ? state.currentUser.id : ""
   return {
     formData: state.plantForm,
   }

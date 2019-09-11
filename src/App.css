@@ -27,10 +27,9 @@
 }
 
 .navPic{
-  margin-top: 10px;
+  margin-top: 1px;
   width: 4em;
   vertical-align: middle;
-  float: left;
   display: inline-block;
 }
 
@@ -46,7 +45,7 @@ input {
 }
 
 a {
-  padding: 1px;
+  padding-top: 1px;
   color: darkgreen;
   text-decoration: none;
 }

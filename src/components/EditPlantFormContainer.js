@@ -19,7 +19,8 @@ class EditPlantFormContainer extends Component {
   }
 
   handleClick = () => {
-    this.props.deletePlant(this.props.match.params.id)
+    const {history, match, deletePlant} = this.props
+    deletePlant(match.params.id, history)
   }
 
   handleSubmit = (formData) => {
@@ -35,6 +36,7 @@ class EditPlantFormContainer extends Component {
       <>
         <h2>Edit this plant</h2>
         <PlantForm editMode handleSubmit={this.handleSubmit} />
+        <br/>
         <button className="delete" onClick={this.handleClick}>Plant died, remove from garden</button>
       </>
     )

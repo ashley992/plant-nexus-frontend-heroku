@@ -11,7 +11,6 @@ export default (state = [], action) => {
         return state = [...state, action.plant]
 
       case 'UPDATE_PLANT':
-        console.log('in update plant reducer', action)
         return state.map(plant => plant.id === action.plant.id ? action.plant : plant)
 
     default:

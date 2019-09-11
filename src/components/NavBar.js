@@ -9,7 +9,7 @@ const NavBar = ({ currentUser, loggedIn }) => {
 
   return (
     <div className="navbar center">
-      <Link to='/'><h3 className='logoName'> <img className='navPic' src='logo-2.png' alt='plant-logo'/>PlantNexus </h3></Link>
+      <Link to='/'><img className='navPic' src='logo-2.png' alt='plant-logo'/><h3 className='logoName'> PlantNexus </h3></Link>
       { loggedIn ? <LoggedInNavBar /> : <LoggedOutNavBar />}
     </div>
   )

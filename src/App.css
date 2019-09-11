@@ -13,6 +13,7 @@
 
 .logoName{
   color: rgb(0, 101, 0);
+  display: inline-block;
 }
 
 #logout {
@@ -26,8 +27,11 @@
 }
 
 .navPic{
-  width: 8%;
+  margin-top: 10px;
+  width: 4em;
   vertical-align: middle;
+  float: left;
+  display: inline-block;
 }
 
 /* ------ Forms and Types ------ */

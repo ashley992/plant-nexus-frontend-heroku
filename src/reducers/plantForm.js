@@ -7,7 +7,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case "UPDATE_NEW_PLANT_FORM":
-      return {...state, [action.formData.name]: action.formData.value}
+      return action.formData
     case "RESET_NEW_PLANT_FORM":
       return initialState
     case 'SET_EDIT_FORM_DATA':

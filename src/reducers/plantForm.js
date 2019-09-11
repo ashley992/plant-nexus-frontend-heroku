@@ -1,7 +1,8 @@
 const initialState = {
   name: '',
   scientificName: '',
-  imageUrl: ''
+  imageUrl: '',
+  notes: ''
 }
 
 export default (state = initialState, action) => {

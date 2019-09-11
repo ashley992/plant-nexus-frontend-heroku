@@ -124,6 +124,7 @@ export const deletePlant = (plantId, history) => {
         alert(plant.error)
       } else {
         dispatch(deletePlantSuccess(plantId))
+        alert(plant.data)
         history.push(`/plants`)
       }
     })

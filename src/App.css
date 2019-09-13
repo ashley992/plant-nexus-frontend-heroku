@@ -2,12 +2,18 @@
   text-align: center;
 }
 
+body{
+  background-image: url("/cactus-wallpaper.png");
+  background-size: cover;
+  background-repeat: repeat;
+}
+
 /* ------  Navbar -------  */
 .navbar {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  background-color: chocolate;
+  background-color: rgb(232, 151, 0);
   font-size: 1.5em;
 }
 
@@ -17,9 +23,11 @@
 }
 
 #logout {
-  background: chocolate;
+  background: rgb(232, 151, 0);
   box-sizing: border-box;
-  border-color: chocolate;
+  border-color: rgb(232, 151, 0);
+  color: darkgreen;
+  font-weight: 600;
 }
 
 .logoPic {
@@ -33,21 +41,26 @@
   display: inline-block;
 }
 
+.nav-link {
+ padding: 1.4em;
+}
+
 /* ------ Forms and Types ------ */
 form {
   padding: 1em;
 }
 input {
   vertical-align: middle;
-  padding: 0.5em;
+  padding: 0.2em;
   font-size: 1em;
   margin: 2px;
 }
 
 a {
   padding-top: 1px;
-  color: darkgreen;
+  color: rgb(0, 62, 0);
   text-decoration: none;
+  font-weight: 600;
 }
 
 a.active {
@@ -59,13 +72,25 @@ a.active {
   font-size: 1.2em;
 }
 
-/* ------ Misc styling ------ */
+/* ------ display layout ------ */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 5px;
 }
 
+/* ------ images ------ */
+
 #sadPlant {
   width: 20%;
 }
+
+img#happy-cactus {
+  height: 260px;
+}
+
+.uploaded {
+  width: 257px;
+}
+
+/* ------ plant card ------ */

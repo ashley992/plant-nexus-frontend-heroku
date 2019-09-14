@@ -10,10 +10,11 @@ const MyPlants = ({ myPlants, userName}) => {
   myPlants.map(plant => <PlantCard plant={plant} key={plant.id} />) : null
 
   return (
-    <div>
-      <h2>Welcome {userName}</h2>
-      <h3>Checkout what's in your garden:</h3>
-      <div className="grid">
+    <div className="center">
+      <h1>Welcome {userName}</h1>
+      <h2>Checkout what's in your garden:</h2>
+      <br/>
+      <div className="grid center">
         {plantCards}
       </div>
     </div>

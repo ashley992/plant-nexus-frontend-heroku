@@ -1,5 +1,6 @@
 .center {
   text-align: center;
+  margin: auto;
 }
 
 body{
@@ -13,19 +14,19 @@ body{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  background-color: rgb(232, 151, 0);
+  background-color: #BA6300 ;
   font-size: 1.5em;
 }
 
 .logoName{
-  color: rgb(0, 101, 0);
+  color: darkgreen;
   display: inline-block;
 }
 
 #logout {
-  background: rgb(232, 151, 0);
+  background: #BA6300;
   box-sizing: border-box;
-  border-color: rgb(232, 151, 0);
+  border-color: #BA6300;
   color: darkgreen;
   font-weight: 600;
 }
@@ -72,11 +73,13 @@ a.active {
   font-size: 1.2em;
 }
 
+
 /* ------ display layout ------ */
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    max-width: 900px;
 }
 
 /* ------ images ------ */
@@ -94,3 +97,8 @@ img#happy-cactus {
 }
 
 /* ------ plant card ------ */
+.plant-card {
+  background-color: rgba(205, 133, 63, 0.6);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

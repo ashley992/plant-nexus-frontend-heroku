@@ -4,7 +4,8 @@
 }
 
 body{
-  background-image: url("/cactus-wallpaper.png");
+  /* background-image: url("/cactus-wallpaper.png"); */
+  background-color: rgb(252, 233, 183);
   background-size: cover;
   background-repeat: repeat;
 }
@@ -14,7 +15,7 @@ body{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  background-color: #BA6300 ;
+  background-color: rgb(250, 134, 0) ;
   font-size: 1.5em;
 }
 
@@ -24,9 +25,9 @@ body{
 }
 
 #logout {
-  background: #BA6300;
+  background: rgb(250, 134, 0) ;
   box-sizing: border-box;
-  border-color: #BA6300;
+  border-color: rgb(250, 134, 0) ;
   color: darkgreen;
   font-weight: 600;
 }
@@ -98,7 +99,7 @@ img#happy-cactus {
 
 /* ------ plant card ------ */
 .plant-card {
-  background-color: rgba(205, 133, 63, 0.6);
+  /* background-color: rgba(205, 133, 63, 0.6); */
   padding-top: 10px;
   padding-bottom: 10px;
 }

@@ -5,7 +5,7 @@ import LoggedOutNavBar from './LoggedOutNavBar'
 import { Link } from 'react-router-dom'
 
 
-const NavBar = ({ currentUser, loggedIn }) => {
+const NavBar = ({ loggedIn }) => {
 
   return (
     <div className="navbar center">
@@ -17,7 +17,6 @@ const NavBar = ({ currentUser, loggedIn }) => {
 
 const mapStateToProps = ({ currentUser }) => {
   return {
-    currentUser,
     loggedIn: !!currentUser
   }
 }

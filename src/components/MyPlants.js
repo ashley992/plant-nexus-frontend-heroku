@@ -4,10 +4,9 @@ import PlantCard from './PlantCard'
 import { getPlants } from '../actions/myPlants'
 
 const MyPlants = ({ myPlants, userName}) => {
- //props.myPlants = [ {a plant}, {another plant}]
 
   const plantCards = myPlants.length > 0 ? 
-  myPlants.map(plant => <PlantCard plant={plant} key={plant.id} />) : null
+  myPlants.map(plant => <PlantCard plant={plant} key={plant.id} />) : <h4>Your garden is empty! Add a plant!</h4>
 
   return (
     <div className="center">

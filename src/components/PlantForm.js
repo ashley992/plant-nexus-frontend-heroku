@@ -2,7 +2,7 @@ import React from 'react';
 import { updatePlantForm } from '../actions/plantForm'
 import { connect } from 'react-redux'
 
-const PlantForm = ({ formData, history, updatePlantForm, handleSubmit, editMode, plant }) => {
+const PlantForm = ({ formData, history, updatePlantForm, handleSubmit, editMode }) => {
 
   const handleChange = event => {
     const { name, value } = event.target

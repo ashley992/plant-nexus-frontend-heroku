@@ -9,6 +9,7 @@ const LoggedInNavBar = ({ currentUser, loggedIn }) => {
     <>
         <NavLink exact activeClassName="active" className='nav-link' to='/plants'>My Plants</NavLink>
         <NavLink exact activeClassName="active" className='nav-link' to='/plants/new'>New Plant</NavLink>
+        <NavLink exact activeClassName="active" className='nav-link' to={`/users/${currentUser.id}/edit`}>Edit Profile</NavLink>
         <Logout/>
     </>
   )

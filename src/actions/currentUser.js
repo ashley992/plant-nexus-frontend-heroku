@@ -101,3 +101,7 @@ export const signup = (credentials, history) => {
     })
   }
 }
+
+export const updateUser = (userData, history) => {
+  debugger
+}

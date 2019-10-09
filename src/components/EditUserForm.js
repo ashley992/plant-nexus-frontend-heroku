@@ -7,10 +7,10 @@ class EditUserForm extends Component {
   constructor(props){
     super(props);
     this.state = {
-      id: undefined,
-      name: undefined,
-      username: undefined,
-      password: undefined
+      id: '',
+      name: '',
+      username: '',
+      password: ''
     }
   }
 
@@ -33,7 +33,6 @@ class EditUserForm extends Component {
   }
 
   handleChange = (event) => {
-    // console.log(event.target)
     const { name, value } = event.target
     this.setState(state => {
       return {
@@ -46,13 +45,12 @@ class EditUserForm extends Component {
   handleSubmit = (event, history) => {
     event.preventDefault()
     console.log(this.state)
+    console.log(this.props.updateUser)
     debugger
     this.props.updateUser(this.state, history)
   }
 
   render(){
-    // console.log("state", this.state)
-    // console.log(this.props)
     return (
       <div>
         <h2>Edit Profile</h2>

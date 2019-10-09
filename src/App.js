@@ -6,6 +6,7 @@ import Home from './components/Home.js'
 import NavBar from './components/NavBar.js'
 import Login from './components/Login.js'
 import Signup from './components/Signup.js'
+import EditUserForm from './components/EditUserForm.js'
 import MyPlants from './components/MyPlants.js'
 import { Route, withRouter, Switch} from 'react-router-dom'
 import NewPlantFormContainer from './components/NewPlantFormContainer'
@@ -19,7 +20,7 @@ class App extends Component {
     this.props.getCurrentUser()
   }
   render(){
-    const { plants } = this.props
+    const { plants, currentUser } = this.props
       return (
         <>
         <NavBar />
@@ -29,6 +30,11 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' render={({history})=> <Signup history={history}/>} />
+            <Route exact path='/users/:id/edit' render={props => {
+              return <EditUserForm user={currentUser} {...props}/>
+            }
+          }/>
+
             <Route exact path='/plants' component={MyPlants}/>
             <Route exact path='/plants/new' component={NewPlantFormContainer}/>
             <Route exact path='/plants/:id' render={props => {

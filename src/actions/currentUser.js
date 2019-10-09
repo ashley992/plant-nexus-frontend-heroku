@@ -104,4 +104,22 @@ export const signup = (credentials, history) => {
 
 export const updateUser = (userData, history) => {
   debugger
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/v1/users/${userData.id}`, {
+        credentials: 'include',
+        method: 'PATCH',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userData)
+      })
+      .then(r => r.json())
+      .then(user =>{
+        if (user.error){
+          alert(user.error)
+        }else {
+          history.push('/plants')
+        }
+      })
+  }
 }

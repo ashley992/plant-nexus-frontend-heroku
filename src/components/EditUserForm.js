@@ -22,8 +22,12 @@ class EditUserForm extends Component {
     this.props.currentUser && !prevProps.currentUser && this.handleInitialState(this.props.currentUser)
   }
 
+  componentWillUnmount(){
+    this.setState(() => {return {id: '', name: '', username: '', password: ''}})
+  }
+
   handleInitialState = (user) => {
-    this.setState((state) => {
+    this.setState(() => {
       return {
         id: parseInt(user.id),
         name: user.attributes.name,
@@ -42,12 +46,9 @@ class EditUserForm extends Component {
     })
   }
 
-  handleSubmit = (event, history) => {
+  handleSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state)
-    console.log(this.props.updateUser)
-    debugger
-    this.props.updateUser(this.state, history)
+    this.props.updateUser(this.state, this.props.history)
   }
 
   render(){
@@ -62,7 +63,7 @@ class EditUserForm extends Component {
             <input type='text' name='username' id='username' placeholder="username" value={this.state.username} onChange={this.handleChange} />
             <br/>
             <label >Password:</label>
-            <input type='text' name='password' id='password' placeholder="new password" value={this.state.password} onChange={this.handleChange} />
+            <input type='password' name='password' id='password' placeholder="new password" value={this.state.password} onChange={this.handleChange} />
             <br/>
             <input type="submit" value="Submit"></input>
           </form>

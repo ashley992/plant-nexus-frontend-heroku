@@ -19,6 +19,7 @@ class App extends Component {
   componentDidMount(){
     this.props.getCurrentUser()
   }
+
   render(){
     const { plants, currentUser } = this.props
       return (

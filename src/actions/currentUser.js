@@ -11,6 +11,13 @@ export const setCurrentUser = user => {
   }
 }
 
+export const updateCurrentUser = user => {
+  return{
+    type: 'UPDATE_CURRENT_USER',
+    user: user
+  }
+}
+
 export const clearCurrentUser = () => {
   return {
     type: "CLEAR_CURRENT_USER"
@@ -103,7 +110,6 @@ export const signup = (credentials, history) => {
 }
 
 export const updateUser = (userData, history) => {
-  debugger
   return dispatch => {
     return fetch(`http://localhost:3001/api/v1/users/${userData.id}`, {
         credentials: 'include',
@@ -118,6 +124,7 @@ export const updateUser = (userData, history) => {
         if (user.error){
           alert(user.error)
         }else {
+          dispatch(updateCurrentUser(user))
           history.push('/plants')
         }
       })

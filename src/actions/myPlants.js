@@ -38,7 +38,7 @@ export const deletePlantSuccess = plantId => {
 //asynch actions
 export const getPlants = ({ user_id }) => {
   return dispatch => {
-    return fetch(`http://localhost:3001/api/v1/users/${user_id}/plants`, {
+    return fetch(`https://plant-nexus.herokuapp.com/users/${user_id}/plants`, {
       credentials: 'include',
       method: 'GET',
       headers: {
@@ -66,7 +66,7 @@ export const createPlant = (formData, history) => {
         notes: formData.notes
       }
     }
-    return fetch("http://localhost:3001/api/v1/plants", {
+    return fetch("https://plant-nexus.herokuapp.com/plants", {
       credentials: 'include',
       method: 'POST',
       headers: {
@@ -95,7 +95,7 @@ export const updatePlant = (formData, history) => {
       image_url: formData.imageUrl,
       notes: formData.notes
     }
-    return fetch(`http://localhost:3001/api/v1/plants/${formData.plantId}`, {
+    return fetch(`https://plant-nexus.herokuapp.com/plants/${formData.plantId}`, {
       credentials: 'include',
       method: 'PATCH',
       headers: {"Content-Type": "application/json"},
@@ -115,7 +115,7 @@ export const updatePlant = (formData, history) => {
 
 export const deletePlant = (plantId, history) => {
   return dispatch => {
-    return fetch(`http://localhost:3001/api/v1/plants/${plantId}`, {
+    return fetch(`https://plant-nexus.herokuapp.com/plants/${plantId}`, {
       credentials: "include",
       method: "DELETE",
       headers: {"Content-Type": "application/json"}

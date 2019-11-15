@@ -26,9 +26,11 @@ export const clearCurrentUser = () => {
 
 
 //asynch action creators
+const root = 'https://plant-nexus.herokuapp.com/'
+
 export const login = (credentials, history) => {
   return dispatch => {
-    return fetch("http://localhost:3001/api/v1/login", {
+    return fetch(root + "/login", {
       credentials: 'include',
       method: 'POST',
       headers: {
@@ -54,7 +56,7 @@ export const logout = () => {
   return dispatch => {
     dispatch(clearCurrentUser())
     dispatch(clearMyPlants())
-    return fetch('http://localhost:3001/api/v1/logout', {
+    return fetch(root + 'logout', {
       credentials: 'include',
       method: 'DELETE'
     })
@@ -63,7 +65,7 @@ export const logout = () => {
 
 export const getCurrentUser = () => {
   return dispatch => {
-    return fetch("http://localhost:3001/api/v1/get_current_user", {
+    return fetch(root + "/get_current_user", {
       credentials: 'include',
       method: 'GET',
       headers: {
@@ -87,7 +89,7 @@ export const signup = (credentials, history) => {
     const userInfo = {
       user: credentials
     }
-    return fetch("http://localhost:3001/api/v1/signup", {
+    return fetch(root + "signup", {
       credentials: 'include',
       method: 'POST',
       headers: {
@@ -111,7 +113,7 @@ export const signup = (credentials, history) => {
 
 export const updateUser = (userData, history) => {
   return dispatch => {
-    return fetch(`http://localhost:3001/api/v1/users/${userData.id}`, {
+    return fetch(root + `/users/${userData.id}`, {
         credentials: 'include',
         method: 'PATCH',
         headers: {
